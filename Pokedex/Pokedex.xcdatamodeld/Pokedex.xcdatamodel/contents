@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24A348" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pokemon" representedClassName="Pokemon" syncable="YES" codeGenerationType="class">
+        <attribute name="baseExp" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="favorite" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="types" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="sprites" maxCount="1" deletionRule="Nullify" destinationEntity="Sprites" inverseName="pokemon" inverseEntity="Sprites"/>
+        <relationship name="stats" toMany="YES" deletionRule="Nullify" destinationEntity="Stat" inverseName="pokemon" inverseEntity="Stat"/>
+    </entity>
+    <entity name="Sprites" representedClassName="Sprites" syncable="YES" codeGenerationType="class">
+        <attribute name="back" attributeType="URI"/>
+        <attribute name="backFemale" optional="YES" attributeType="URI"/>
+        <attribute name="backShiny" attributeType="URI"/>
+        <attribute name="backShinyFemale" optional="YES" attributeType="URI"/>
+        <attribute name="front" attributeType="URI"/>
+        <attribute name="frontFemale" optional="YES" attributeType="URI"/>
+        <attribute name="frontShiny" attributeType="URI"/>
+        <attribute name="frontShinyFemale" optional="YES" attributeType="URI"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="sprites" inverseEntity="Pokemon"/>
+    </entity>
+    <entity name="Stat" representedClassName="Stat" syncable="YES" codeGenerationType="class">
+        <attribute name="base" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="effort" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pokemon" inverseName="stats" inverseEntity="Pokemon"/>
+    </entity>
+</model>
