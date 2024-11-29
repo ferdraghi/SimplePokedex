@@ -28,14 +28,13 @@ struct PokedexIndexCell: View {
                 .frame(maxWidth: .infinity)
                 .background(.ultraThinMaterial.opacity(0.5))
             
-            if (pokemon.favorite) {
-                Image(systemName: "star.fill")
-                    .font(.caption2)
-                    .padding([.bottom], 80)
-                    .padding([.leading], 70)
-                    .foregroundStyle(.yellow)
-                    .shadow(color: .gray, radius: 2, x: 1, y: 1)
-            }
+            Image(systemName: "star.fill")
+                .font(.caption2)
+                .padding([.bottom], 80)
+                .padding([.leading], 70)
+                .foregroundStyle(.yellow)
+                .shadow(color: .gray, radius: 2, x: 1, y: 1)
+                .opacity(pokemon.favorite ? 1 : 0)
         }
         .frame(width: 100, height: 100)
         .background(pokemon.statsColor.opacity(0.5))
